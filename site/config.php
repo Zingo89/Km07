@@ -17,8 +17,8 @@ ini_set('display_errors', 1);
 $le->config['debug']['lennart'] = false;
 $le->config['debug']['session'] = false;
 $le->config['debug']['timer'] = true;
-$le->config['debug']['db-num-queries'] = true;
-$le->config['debug']['db-queries'] = true;
+$le->config['debug']['db-num-queries'] = false;
+$le->config['debug']['db-queries'] = false;
 
 
 /**
@@ -101,6 +101,7 @@ $le->config['controllers'] = array(
   'acp'       => array('enabled' => true,'class' => 'CCAdminControlPanel'),
   'module'    => array('enabled' => true,'class' => 'CCModules'),
   'my'        => array('enabled' => true,'class' => 'CCMycontroller'),
+  'dbwebb'        => array('enabled' => true,'class' => 'CCDbwebb'),
 );
 
 
@@ -134,6 +135,11 @@ $le->config['menus'] = array(
     'guestbook' => array('label'=>'Guestbook', 'url'=>'my/guestbook'),
     'report'    => array('label'=>'Report', 'url'=>'my/report'),
   ),
+  'db-navbar' => array(
+    'home'    => array('label'=>'Home', 'url'=>'dbwebb'),
+    'kurser'  => array('label'=>'kurser', 'url'=>'dbwebb/kurser'),
+    'forum'   => array('label'=>'forum', 'url'=>'dbwebb/forum'),
+    ),
 );
 
 
@@ -173,6 +179,7 @@ $le->config['theme'] = array(
     'footer',
   ),
   'menu_to_region' => array('my-navbar'=>'navbar'),
+  //'menu_to_region' => array('db-navbar'=>'navbar'),
   'data' => array(
     'header' => 'Lennart',
     'slogan' => 'A PHP-based MVC-inspired CMF',
